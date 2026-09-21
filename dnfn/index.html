@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DNF女鬼剑刷图加点攻略，包含剑宗、剑魔、暗帝、暗影战刃四种转职的技能加点推荐、装备搭配思路及实战技巧。">
+    <meta name="keywords" content="dnf女鬼刷图加点, DNF女鬼剑加点, 剑宗加点, 剑魔加点, 暗帝加点, 暗影战刃加点, 地下城与勇士攻略">
+    <title>dnf女鬼刷图加点 - DNF女鬼剑职业全流派技能加点与实战指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8e44ad;
+            --secondary-color: #9b59b6;
+            --accent-color: #f1c40f;
+            --bg-dark: #1a1a2e;
+            --bg-card: #16213e;
+            --text-main: #ecf0f1;
+            --text-muted: #bdc3c7;
+            --border-color: #2c3e50;
+            --success-color: #2ecc71;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: rgba(26, 26, 46, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #8e44ad 100%);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* 内容网格 */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+                gap: 15px;
+            }
+        }
+
+        /* 通用卡片样式 */
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: normal;
+        }
+
+        .tag.new {
+            background-color: var(--success-color);
+        }
+
+        /* 技能列表 */
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 6px;
+            transition: transform 0.2s;
+        }
+
+        .skill-item:hover {
+            transform: translateX(5px);
+            background-color: rgba(142, 68, 173, 0.1);
+        }
+
+        .skill-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skill-name {
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+
+        .skill-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .skill-points {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* 标签云 */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag-btn {
+            padding: 8px 16px;
+            background-color: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tag-btn:hover, .tag-btn.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        /* 侧边栏 */
+        aside .card {
+            position: sticky;
+            top: 90px;
+        }
+
+        .guide-list li {
+            margin-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .guide-list li:last-child {
+            border-bottom: none;
+        }
+
+        .guide-list a {
+            font-size: 1rem;
+            display: block;
+        }
+
+        .guide-list a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .guide-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        /* 加点模拟器样式 */
+        .simulator-box {
+            background-color: #0f0f1a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .simulator-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .sim-controls {
+            display: flex;
+            gap: 15px;
+        }
+
+        .sim-btn {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .sim-btn:hover {
+            border-color: var(--primary-color);
+        }
+
+        .sim-btn.primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .sim-btn.primary:hover {
+            background-color: #732d91;
+        }
+
+        .progress-bar-container {
+            margin-top: 15px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .progress-track {
+            height: 10px;
+            background-color: #2c3e50;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--success-color);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        /* 常见问题 */
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            margin-bottom: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #0f0f1a;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+            color: var(--text-muted);
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* 图标模拟 */
+        .icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            background-color: currentColor;
+            mask-size: cover;
+            -webkit-mask-size: cover;
+        }
+
+        .icon-sword::before {
+            content: "⚔️";
+            font-size: 1.2em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">DNF<span>攻略站</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">加点攻略</a></li>
+                    <li><a href="#">装备推荐</a></li>
+                    <li><a href="#">副本解析</a></li>
+                    <li><a href="#">视频教学</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>DNF女鬼剑刷图加点指南</h1>
+                <p>全面解析剑宗、剑魔、暗帝、暗影战刃四大转职的技能加点方案，助你打造高效刷图流。</p>
+            </div>
+        </section>
+
+        <div class="container content-grid">
+            <!-- 左侧主要内容 -->
+            <div class="main-content">
+                
+                <!-- 流派选择 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title"><span class="icon icon-sword"></span> 选择转职流派</h2>
+                    </div>
+                    <div class="tag-cloud">
+                        <button class="tag-btn active" onclick="switchClass('jianzong')">剑宗 (驭剑士)</button>
+                        <button class="tag-btn" onclick="switchClass('jianmo')">剑魔</button>
+                        <button class="tag-btn" onclick="switchClass('andi')">暗帝</button>
+                        <button class="tag-btn" onclick="switchClass('anying')">暗影战刃</button>
+                    </div>
+                </div>
+
+                <!-- 剑宗加点 -->
+                <article class="card" id="jianzong-content">
+                    <div class="card-header">
+                        <h2 class="card-title">剑宗 (驭剑士) - 极致输出流</h2>
+                        <span class="tag new">版本推荐</span>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted);">
+                        剑宗是目前版本主流的刷图职业，拥有丰富的武器转换技能，爆发能力极强。核心思路：<strong>TP技能最大化</strong>，优先点满核心输出技能。
+                    </p>
+                    
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">斩钢闪</span>
+                                <span class="skill-desc">核心爆发技能，TP必满</span>
+                            </div>
+                            <span class="skill-points">TP: 5</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">恶即斩</span>
+                                <span class="skill-desc">高伤害范围技能，TP满</span>
+                            </div>
+                            <span class="skill-points">TP: 5</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">裂波斩</span>
+                                <span class="skill-desc">聚怪核心，TP满</span>
+                            </div>
+                            <span class="skill-points">TP: 3</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">恶即斩 (EX)</span>
+                                <span class="skill-desc">TP溢出时点满</span>
+                            </div>
+                            <span class="skill-points">TP: 3</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">流心系列</span>
+                                <span class="skill-desc">流心刺/跃/升/回 均加1级前置</span>
+                            </div>
+                            <span class="skill-points">1/1/1/1</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">裂空剑气 (EX)</span>
+                                <span class="skill-desc">TP溢出时点满</span>
+                            </div>
+                            <span class="skill-points">TP: 3</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 剑魔加点 (默认隐藏) -->
+                <article class="card" id="jianmo-content" style="display: none;">
+                    <div class="card-header">
+                        <h2 class="card-title">剑魔 - 狂暴收割流</h2>
+                        <span class="tag">爆发型</span>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted);">
+                        剑魔拥有强大的控制链和百分比伤害，核心在于“狰”的叠加与爆发。核心思路：<strong>TP优先给大招</strong>。
+                    </p>
+                    
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">月之光芒</span>
+                                <span class="skill-desc">核心输出技能，TP满</span>
+                            </div>
+                            <span class="skill-points">TP: 5</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">血魔·弑天</span>
+                                <span class="skill-desc">超大型范围伤害，TP满</span>
+                            </div>
+                            <span class="skill-points">TP: 5</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">血魔·狂乱</span>
+                                <span class="skill-desc">核心爆发，TP满</span>
+                            </div>
+                            <span class="skill-points">TP: 5</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">血腥暴风雨</span>
+                                <span class="skill-desc">TP满</span>
+                            </div>
+                            <span class="skill-points">TP: 3</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">魔神降世</span>
+                                <span class="skill-desc">TP满</span>
+                            </div>
+                            <span class="skill-points">TP: 3</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 暗帝加点 -->
+                <article class="card" id="andi-content" style="display: none;">
+                    <div class="card-header">
+                        <h2 class="card-title">暗帝 - 光影控制流</h2>
+                        <span class="tag">控制辅助</span>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted);">
+                        暗帝依靠暗影系技能进行输出与控制，拥有优秀的续航能力和聚怪能力。核心思路：<strong>TP加给主要输出技能</strong>。
+                    </p>
+                    
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">暗影盛宴</span>
+                                <span class="skill-desc">主要输出技能，TP满</span>
+                            </div>
+                            <span class="skill-points">TP: 5</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">暗影禁锢</span>
+                                <span class="skill-desc">强力控制，TP满</span>
+                            </div>
+                            <span class="skill-points">TP: 5</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">暗影之矛</span>
+                                <span class="skill-desc">TP满</span>
+                            </div>
+                            <span class="skill-points">TP: 3</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">暗影盛宴 (EX)</span>
+                                <span class="skill-desc">TP溢出时点满</span>
+                            </div>
+                            <span class="skill-points">TP: 3</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 暗影战刃加点 -->
+                <article class="card" id="anying-content" style="display: none;">
+                    <div class="card-header">
+                        <h2 class="card-title">暗影战刃 - 爆发突进流</h2>
+                        <span class="tag">单体爆发</span>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted);">
+                        暗影战刃拥有极高的单体爆发能力，依靠连击和技能衔接进行输出。核心思路：<strong>TP给核心爆发</strong>。
+                    </p>
+                    
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">暗影刃</span>
+                                <span class="skill-desc">核心输出，TP满</span>
+                            </div>
+                            <span class="skill-points">TP: 5</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">暗影瞬杀</span>
+                                <span class="skill-desc">突进爆发，TP满</span>
+                            </div>
+                            <span class="skill-points">TP: 5</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">暗影缠袭</span>
+                                <span class="skill-desc">TP满</span>
+                            </div>
+                            <span class="skill-points">TP: 3</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 加点模拟器 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">加点模拟器</h2>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px;">
+                        请在上方选择职业，下方将自动加载对应的技能加点方案。
+                    </p>
+                    <div class="simulator-box">
+                        <div class="simulator-header">
+                            <span>当前加点进度</span>
+                            <span id="point-counter">0 / 68 点</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-track">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px; display: flex; gap: 10px;">
+                            <button class="sim-btn" onclick="resetPoints()">重置加点</button>
+                            <button class="sim-btn primary" onclick="savePoints()">保存方案</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 常见问题 -->
+                <section class="card">
+                    <h2 class="card-title" style="margin-bottom: 20px;">常见问题 (FAQ)</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">TP点数不够怎么办？ <span>+</span></div>
+                        <div class="faq-answer">
+                            如果TP点数不足（例如剑魔只有3点TP），请优先保证核心输出技能（如月之光芒、血魔·弑天）点满，其余TP可分配给小技能或功能性技能。
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">流心系列必须加满吗？ <span>+</span></div>
+                        <div class="faq-answer">
+                            不需要全部加满。通常加1级前置即可（用于聚怪或连招衔接），TP点数非常宝贵，不建议浪费在流心上。
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">哪个转职刷图最强？ <span>+</span></div>
+                        <div class="faq-answer">
+                            这取决于你的操作习惯。剑宗操作上限高，爆发强；剑魔控制多，生存能力强；暗帝续航好，聚怪方便。建议根据自身喜好选择。
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- 右侧侧边栏 -->
+            <aside class="sidebar">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">热门推荐</h3>
+                    </div>
+                    <ul class="guide-list">
+                        <li>
+                            <a href="#">DNF 100级版本装备流派大全</a>
+                            <span class="guide-meta">装备搭配 · 1.2w 阅读</span>
+                        </li>
+                        <li>
+                            <a href="#">卢克raid通关技巧与BOSS机制</a>
+                            <span class="guide-meta">副本攻略 · 8k 阅读</span>
+                        </li>
+                        <li>
+                            <a href="#">男鬼剑与女鬼剑职业对比分析</a>
+                            <span class="guide-meta">职业讨论 · 5k 阅读</span>
+                        </li>
+                        <li>
+                            <a href="#">深渊派对地下城进入条件</a>
+                            <span class="guide-meta">入门指南 · 3k 阅读</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">加点工具</h3>
+                    </div>
+                    <div class="simulator-box">
+                        <p style="font-size: 0.9rem; margin-bottom: 10px;">当前职业：剑宗</p>
+                        <button class="sim-btn" style="width: 100%;">一键复制加点代码</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 DNF攻略站 - 专注于DNF女鬼剑刷图加点与实战指南</p>
+            <p style="font-size: 0.8rem; color: #555;">本站攻略基于游戏版本整理，仅供参考，请以游戏内实际效果为准。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 切换职业卡片显示
+        function switchClass(className) {
+            // 隐藏所有内容卡片
+            const contents = ['jianzong-content', 'jianmo-content', 'andi-content', 'anying-content'];
+            contents.forEach(id => {
+                document.getElementById(id).style.display = 'none';
+            });
+
+            // 移除所有按钮激活状态
+            const buttons = document.querySelectorAll('.tag-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // 显示选中的内容卡片
+            document.getElementById(className + '-content').style.display = 'block';
+
+            // 激活当前按钮
+            event.target.classList.add('active');
+
+            // 更新模拟器显示的职业名称
+            const jobNames = {
+                'jianzong': '剑宗',
+                'jianmo': '剑魔',
+                'andi': '暗帝',
+                'anying': '暗影战刃'
+            };
+            document.querySelector('.simulator-box p').textContent = '当前职业：' + jobNames[className];
+            
+            // 模拟进度条更新
+            updateProgress();
+        }
+
+        // 切换FAQ折叠
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            faqItem.classList.toggle('active');
+            
+            // 旋转箭头
+            const span = element.querySelector('span');
+            span.textContent = faqItem.classList.contains('active') ? '-' : '+';
+        }
+
+        // 更新进度条
+        function updateProgress() {
+            const fill = document.getElementById('progress-fill');
+            const counter = document.getElementById('point-counter');
+            
+            // 模拟加载不同职业的加点进度
+            const progress = Math.floor(Math.random() * 30) + 50; // 50% - 80%
+            fill.style.width = progress + '%';
+            counter.textContent = '模拟加载中...';
+            
+            setTimeout(() => {
+                counter.textContent = progress + ' / 68 点';
+                if (progress < 68) {
+                    fill.style.backgroundColor = '#f1c40f'; // 黄色表示未满
+                } else {
+                    fill.style.backgroundColor = '#2ecc71'; // 绿色表示满
+                }
+            }, 600);
+        }
+
+        function resetPoints() {
+            const fill = document.getElementById('progress-fill');
+            const counter = document.getElementById('point-counter');
+            fill.style.width = '0%';
+            counter.textContent = '0 / 68 点';
+            fill.style.backgroundColor = '#2ecc71';
+        }
+
+        function savePoints() {
+            const counter = document.getElementById('point-counter');
+            if (counter.textContent.includes('0')) {
+                alert('请先选择职业并加点！');
+            } else {
+                alert('方案已保存（模拟）');
+            }
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            updateProgress();
+        });
+    </script>
+</body>
+                                                               </html>
