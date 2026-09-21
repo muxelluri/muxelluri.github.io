@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="符文大师 - 深度符文解析与符文构建指南。提供全面的游戏符文知识库、符文搭配推荐、符文效果详解及符文搭配策略，助你成为真正的符文大师。">
+    <meta name="keywords" content="符文大师,符文搭配,符文攻略,符文效果,符文知识">
+    <title>符文大师-深度符文解析与搭配指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #00cec9;
+            --dark-bg: #2d3436;
+            --card-bg: #dfe6e9;
+            --text-main: #2d3436;
+            --text-light: #636e72;
+            --white: #ffffff;
+            --radius: 12px;
+            --shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f6fa;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏 */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #2d3436 0%, #6c5ce7 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            background: var(--white);
+            padding: 8px;
+            border-radius: 50px;
+            display: inline-flex;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-box button {
+            background-color: var(--accent-color);
+            color: var(--dark-bg);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background-color: #00b894;
+        }
+
+        /* 通用板块样式 */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .view-all {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .view-all:hover {
+            color: var(--primary-color);
+        }
+
+        /* 符文分类网格 */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: var(--secondary-color);
+        }
+
+        .cat-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .cat-title {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        /* 热门符文推荐 */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .rune-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .rune-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .rune-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .rune-content {
+            padding: 20px;
+        }
+
+        .rune-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background-color: #f1f2f6;
+            color: var(--text-light);
+        }
+
+        .tag.active {
+            background-color: rgba(108, 92, 231, 0.1);
+            color: var(--primary-color);
+        }
+
+        .rune-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .rune-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .rune-stats {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid #f1f2f6;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* 符文构建指南 */
+        .guide-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+        }
+
+        .guide-sidebar {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            height: fit-content;
+        }
+
+        .guide-nav-item {
+            display: block;
+            padding: 12px 15px;
+            margin-bottom: 5px;
+            border-radius: 8px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .guide-nav-item:hover, .guide-nav-item.active {
+            background-color: rgba(108, 92, 231, 0.1);
+            color: var(--primary-color);
+        }
+
+        .guide-main {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+        }
+
+        .guide-header {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .guide-header h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .guide-header .meta {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .rune-combo-list {
+            list-style: none;
+        }
+
+        .combo-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #f1f2f6;
+        }
+
+        .combo-rune {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .combo-info {
+            flex: 1;
+        }
+
+        .combo-name {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .combo-desc {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* 常见问题 */
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        .faq-item.open .faq-question {
+            color: var(--primary-color);
+        }
+
+        .icon-plus {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #f1f2f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .faq-item.open .icon-plus {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--dark-bg);
+            color: #b2bec3;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: #b2bec3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+
+            .guide-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .search-box button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span>符文大师</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#categories">符文分类</a></li>
+                    <li><a href="#featured">热门推荐</a></li>
+                    <li><a href="#guides">构建指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+                <a href="#guides" class="cta-btn">开始构建</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero 区域 -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>解锁你的符文潜能</h1>
+            <p>符文大师为您提供最全面、最专业的符文解析。无论是新手入门还是高端局进阶，我们都有适合您的符文搭配策略。</p>
+            <form class="search-box" onsubmit="event.preventDefault();">
+                <input type="text" placeholder="搜索符文名称或英雄...">
+                <button type="submit">搜索符文</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 符文分类 -->
+    <section id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">符文体系</h2>
+                <a href="#" class="view-all">查看全部 <span>&rarr;</span></a>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <span class="cat-icon">⚡</span>
+                    <div class="cat-title">精密系</div>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">🔥</span>
+                    <div class="cat-title">主宰系</div>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">❄️</span>
+                    <div class="cat-title">坚决系</div>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">🧪</span>
+                    <div class="cat-title">巫术系</div>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">🛡️</span>
+                    <div class="cat-title">防御系</div>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">⚔️</span>
+                    <div class="cat-title">侵略系</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门推荐 -->
+    <section id="featured" style="background-color: #fff;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">大师推荐</h2>
+                <a href="#" class="view-all">查看排行榜 <span>&rarr;</span></a>
+            </div>
+            <div class="featured-grid">
+                <!-- 卡片 1 -->
+                <article class="rune-card">
+                    <img src="https://picsum.photos/seed/runes1/400/250" alt="征服者符文" class="rune-image">
+                    <div class="rune-content">
+                        <div class="rune-tags">
+                            <span class="tag active">进攻型</span>
+                            <span class="tag">主流</span>
+                        </div>
+                        <h3 class="rune-title">征服者 - 持续作战核心</h3>
+                        <p class="rune-desc">通过持续攻击叠加层数，提供爆发伤害与治疗效果。最适合持续作战型英雄，如剑姬、永恩。</p>
+                        <div class="rune-stats">
+                            <span>胜率: 52.4%</span>
+                            <span>登场率: 85%</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 卡片 2 -->
+                <article class="rune-card">
+                    <img src="https://picsum.photos/seed/runes2/400/250" alt="电刑符文" class="rune-image">
+                    <div class="rune-content">
+                        <div class="rune-tags">
+                            <span class="tag active">爆发型</span>
+                            <span class="tag">刺客</span>
+                        </div>
+                        <h3 class="rune-title">电刑 - 极限爆发输出</h3>
+                        <p class="rune-desc">短时间内三次技能或普攻触发，提供高额爆发伤害。适合刺客与游走型英雄，如劫、卡莎。</p>
+                        <div class="rune-stats">
+                            <span>胜率: 51.1%</span>
+                            <span>登场率: 60%</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 卡片 3 -->
+                <article class="rune-card">
+                    <img src="https://picsum.photos/seed/runes3/400/250" alt="不灭之握符文" class="rune-image">
+                    <div class="rune-content">
+                        <div class="rune-tags">
+                            <span class="tag active">消耗型</span>
+                            <span class="tag">上单</span>
+                        </div>
+                        <h3 class="rune-title">不灭之握 - 对线压制</h3>
+                        <p class="rune-desc">攻击时造成额外伤害并回复生命值。适合坦克型上单，如奥恩、奎桑提，增强对线续航。</p>
+                        <div class="rune-stats">
+                            <span>胜率: 53.8%</span>
+                            <span>登场率: 40%</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 构建指南 -->
+    <section id="guides">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">符文构建指南</h2>
+            </div>
+            <div class="guide-layout">
+                <!-- 侧边栏 -->
+                <aside class="guide-sidebar">
+                    <a href="#" class="guide-nav-item active">上单坦克流</a>
+                    <a href="#" class="guide-nav-item">打野刺客流</a>
+                    <a href="#" class="guide-nav-item">中单法师流</a>
+                    <a href="#" class="guide-nav-item">射手输出流</a>
+                    <a href="#" class="guide-nav-item">辅助游走流</a>
+                </aside>
+
+                <!-- 主要内容 -->
+                <main class="guide-main">
+                    <div class="guide-header">
+                        <h3>上单坦克流 - 钢铁意志</h3>
+                        <span class="meta">适用英雄：奥恩、奎桑提、奥瑞利安·索尔</span>
+                    </div>
+                    <p style="margin-bottom: 20px;">这套符文侧重于生命值、护甲和冷却缩减，确保在团战中能够吸收大量伤害并频繁释放技能。</p>
+                    
+                    <h4 style="margin-bottom: 15px; font-size: 16px;">符文加点顺序</h4>
+                    <ul class="rune-combo-list">
+                        <li class="combo-item">
+                            <div class="combo-rune" style="background-color: #6c5ce7;">决斗</div>
+                            <div class="combo-info">
+                                <span class="combo-name">坚决系 - 坚定</span>
+                                <span class="combo-desc">对控制效果的抵抗能力，大幅提升坦度。</span>
+                            </div>
+                        </li>
+                        <li class="combo-item">
+                            <div class="combo-rune" style="background-color: #0984e3;">复苏</div>
+                            <div class="combo-info">
+                                <span class="combo-name">坚决系 - 复苏之风</span>
+                                <span class="combo-desc">受到伤害时回复生命值，增加对线续航。</span>
+                            </div>
+                        </li>
+                        <li class="combo-item">
+                            <div class="combo-rune" style="background-color: #00b894;">生命</div>
+                            <div class="combo-info">
+                                <span class="combo-name">坚决系 - 过度生长</span>
+                                <span class="combo-desc">每层提供额外生命值，增强后期团战能力。</span>
+                            </div>
+                        </li>
+                        <li class="combo-item">
+                            <div class="combo-rune" style="background-color: #e17055;">符能</div>
+                            <div class="combo-info">
+                                <span class="combo-name">巫术系 - 灵光披风</span>
+                                <span class="combo-desc">召唤师技能冷却减少，提升支援速度。</span>
+                            </div>
+                        </li>
+                    </ul>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section id="faq" style="background-color: #fff;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">符文大师 FAQ</h2>
+            </div>
+            <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        新手应该选择什么符文？
+                        <span class="icon-plus">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        对于新手玩家，建议优先使用<strong>坚决系</strong>或<strong>精密系</strong>的符文。这些符文通常提供生命值加成、护甲魔抗或攻击力，能让你在前期对线时更不容易被击杀，并且拥有稳定的伤害来源。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        符文需要随版本更新吗？
+                        <span class="icon-plus">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        是的。游戏版本更新通常会调整符文的数值或效果。例如，某些符文可能会被削弱导致胜率下降，或者被加强成为版本答案。符文大师会定期更新符文数据，请关注最新的版本变动。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        如何根据对局选择符文？
+                        <span class="icon-plus">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        首先观察敌方阵容的输出类型。如果对方物理输出高，选择带有护甲的坚决系符文；如果对方魔法输出高，选择魔抗符文。其次考虑己方阵容需求，如果缺乏控制，可以选择带有控制效果的符文小件。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>符文大师</h4>
+                    <p style="font-size: 14px; line-height: 1.8;">致力于为玩家提供最准确、最及时的符文攻略。让每一位玩家都能找到适合自己的符文搭配，提升游戏体验。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">符文分类</a></li>
+                        <li><a href="#">英雄推荐</a></li>
+                        <li><a href="#">版本更新</a></li>
+                        <li><a href="#">符文计算器</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">使用条款</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 符文大师 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('open');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('open');
+                });
+            });
+
+            // 简单的侧边栏导航点击效果
+            const navItems = document.querySelectorAll('.guide-nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    item.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+                              </html>
