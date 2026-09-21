@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伏魔英雄传-经典仙侠题材连载漫画与原著小说阅读平台</title>
+    <meta name="description" content="伏魔英雄传官方正版阅读平台，提供高清漫画在线阅读、章节更新、角色图鉴及原著小说试读。沉浸式仙侠世界，为您呈现最纯粹的东方玄幻体验。">
+    <meta name="keywords" content="伏魔英雄传, 仙侠漫画, 东方玄幻, 在线阅读, 漫画连载, 网络小说">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d4a017; /* 金色，象征仙侠与尊贵 */
+            --secondary-color: #2c3e50; /* 深蓝灰，营造沉稳氛围 */
+            --accent-color: #e74c3c; /* 朱红，用于强调与战斗元素 */
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #7f8c8d;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--secondary-color);
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: #fff;
+            margin-left: 5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .header-actions .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+        }
+
+        .header-actions .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+            color: #fff;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://picsum.photos/seed/hero/1920/600');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            mix-blend-mode: overlay;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: rgba(212, 160, 23, 0.2);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(212, 160, 23, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-hero {
+            padding: 12px 35px;
+            font-size: 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-start {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+        }
+
+        .btn-read {
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-start:hover, .btn-read:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .section-link {
+            font-size: 14px;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .section-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Chapter List */
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .chapter-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 160, 23, 0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .card-img {
+            height: 260px;
+            width: 100%;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-tag {
+            background-color: #f0f2f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #666;
+        }
+
+        /* Character Section */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .character-card {
+            text-align: center;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .char-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+
+        .char-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .char-role {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* Latest Updates (Horizontal List) */
+        .update-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .update-item {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .update-item:hover {
+            background-color: #fafafa;
+        }
+
+        .update-img {
+            width: 80px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+
+        .update-info {
+            flex: 1;
+        }
+
+        .update-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .update-desc {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .update-date {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .btn-read-sm {
+            padding: 6px 15px;
+            background-color: var(--secondary-color);
+            color: #fff;
+            border-radius: 4px;
+            font-size: 12px;
+            transition: var(--transition);
+        }
+
+        .btn-read-sm:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Features */
+        .features {
+            background-color: #fff;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .feature-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #bdc3c7;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero-container { flex-direction: column; text-align: center; }
+            .hero p { margin: 0 auto 30px; }
+            .hero-buttons { justify-content: center; }
+            .header-container { flex-direction: column; height: auto; padding: 15px; }
+            nav ul { margin: 15px 0; gap: 15px; font-size: 14px; }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .update-item { flex-direction: column; text-align: center; }
+            .update-img { width: 100%; height: 200px; margin: 0 0 15px 0; }
+            .update-info { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">伏魔<span>英雄传</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">漫画连载</a></li>
+                    <li><a href="#">小说章节</a></li>
+                    <li><a href="#">角色图鉴</a></li>
+                    <li><a href="#">粉丝社区</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn">登录</button>
+                <button class="btn btn-primary">免费注册</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <span class="hero-tag">东方玄幻 / 仙侠 / 冒险</span>
+                    <h1>伏魔英雄传</h1>
+                    <p>在这个被妖魔侵蚀的世界里，唯有传说中的英雄才能斩断因果，重铸乾坤。跟随主角的脚步，探索未知的秘境，揭开上古封印的真相。</p>
+                    <div class="hero-buttons">
+                        <button class="btn-hero btn-start">开始阅读</button>
+                        <button class="btn-hero btn-read">加入书架</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Placeholder for main cover -->
+                    <img src="https://picsum.photos/seed/hero/500/700" alt="伏魔英雄传封面">
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Updates -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">最新更新</h2>
+                <a href="#" class="section-link">查看全部 &gt;</a>
+            </div>
+            <div class="update-list">
+                <article class="update-item">
+                    <img src="https://picsum.photos/seed/ch1/160/200" alt="第1话 封印松动" class="update-img">
+                    <div class="update-info">
+                        <h3 class="update-title">第1话 封印松动</h3>
+                        <p class="update-desc">少年在深山中偶遇神秘老者，意外触碰了传说中的封印石碑，命运的齿轮开始转动。</p>
+                        <span class="update-date">2023-10-24 | 漫画</span>
+                    </div>
+                    <a href="#" class="btn-read-sm">阅读</a>
+                </article>
+                <article class="update-item">
+                    <img src="https://picsum.photos/seed/ch2/160/200" alt="第2话 初入江湖" class="update-img">
+                    <div class="update-info">
+                        <h3 class="update-title">第2话 初入江湖</h3>
+                        <p class="update-desc">为了寻找治愈妹妹的方法，少年告别故乡踏上旅途，却因卷入门派争斗而陷入危机。</p>
+                        <span class="update-date">2023-10-22 | 小说</span>
+                    </div>
+                    <a href="#" class="btn-read-sm">阅读</a>
+                </article>
+                <article class="update-item">
+                    <img src="https://picsum.photos/seed/ch3/160/200" alt="第3话 妖兽来袭" class="update-img">
+                    <div class="update-info">
+                        <h3 class="update-title">第3话 妖兽来袭</h3>
+                        <p class="update-desc">夜幕降临，森林深处传来异响，少年不得不面对潜伏已久的暗影兽，初次展现修为。</p>
+                        <span class="update-date">2023-10-20 | 漫画</span>
+                    </div>
+                    <a href="#" class="btn-read-sm">阅读</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Featured Categories -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">热门分类</h2>
+                <a href="#" class="section-link">更多分类 &gt;</a>
+            </div>
+            <div class="chapter-grid">
+                <div class="chapter-card">
+                    <img src="https://picsum.photos/seed/fight/300/400" alt="战斗篇" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">热血战斗</h3>
+                        <div class="card-meta">
+                            <span class="card-tag">热门</span>
+                            <span>1.2w 阅读</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chapter-card">
+                    <img src="https://picsum.photos/seed/love/300/400" alt="情感篇" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">羁绊情感</h3>
+                        <div class="card-meta">
+                            <span class="card-tag">连载中</span>
+                            <span>8.5k 阅读</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chapter-card">
+                    <img src="https://picsum.photos/seed/soul/300/400" alt="修炼篇" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">修真问道</h3>
+                        <div class="card-meta">
+                            <span class="card-tag">更新</span>
+                            <span>5.6k 阅读</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chapter-card">
+                    <img src="https://picsum.photos/seed/magic/300/400" alt="魔法篇" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">神秘魔法</h3>
+                        <div class="card-meta">
+                            <span class="card-tag">独家</span>
+                            <span>3.2k 阅读</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Characters -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">主要角色</h2>
+            </div>
+            <div class="character-grid">
+                <div class="character-card">
+                    <img src="https://picsum.photos/seed/char1/200/200" alt="李长风" class="char-avatar">
+                    <h3 class="char-name">李长风</h3>
+                    <p class="char-role">主角 / 热血少年</p>
+                </div>
+                <div class="character-card">
+                    <img src="https://picsum.photos/seed/char2/200/200" alt="苏清寒" class="char-avatar">
+                    <h3 class="char-name">苏清寒</h3>
+                    <p class="char-role">女主角 / 冰灵根</p>
+                </div>
+                <div class="character-card">
+                    <img src="https://picsum.photos/seed/char3/200/200" alt="玄机子" class="char-avatar">
+                    <h3 class="char-name">玄机子</h3>
+                    <p class="char-role">师父 / 隐世高人</p>
+                </div>
+                <div class="character-card">
+                    <img src="https://picsum.photos/seed/char4/200/200" alt="夜煞" class="char-avatar">
+                    <h3 class="char-name">夜煞</h3>
+                    <p class="char-role">反派 / 幽冥使者</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">极速阅读</h3>
+                    <p class="feature-desc">高清无损漫画与流畅排版，随时随地畅享阅读体验。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">多端同步</h3>
+                    <p class="feature-desc">支持手机、平板、电脑多端登录，阅读进度云端同步。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-title">互动社区</h3>
+                    <p class="feature-desc">加入书友圈，与千万读者一起讨论剧情，分享心得。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎁</div>
+                    <h3 class="feature-title">每日签到</h3>
+                    <p class="feature-desc">每日签到领取阅读券，免费解锁更多精彩章节。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px;">伏魔<span>英雄传</span></div>
+                <p style="font-size: 14px; line-height: 1.8; color: #7f8c8d;">
+                    伏魔英雄传致力于为用户提供最优质的东方玄幻阅读体验。我们精选海量优质漫画与小说，打造沉浸式的仙侠世界。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">漫画首页</a></li>
+                    <li><a href="#">小说首页</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">分类浏览</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">网站介绍</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">联系客服</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">官方微博</a></li>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">B站账号</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 伏魔英雄传阅读平台 版权所有 | 本站内容仅供学习交流使用</p>
+        </div>
+    </footer>
+
+</body>
+  </html>
