@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="全职法师漫画免费阅读下拉式六漫画 - 提供全职法师高清漫画全集在线阅读，包含最新章节更新、角色介绍及高清大图，支持手机与电脑端流畅浏览。">
+    <meta name="keywords" content="全职法师漫画,全职法师免费阅读,全职法师漫画全集,全职法师在线看,六漫画,全职法师动漫">
+    <title>全职法师漫画免费阅读下拉式六漫画</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 16px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+            width: 200px;
+            transition: width 0.3s;
+        }
+
+        .search-box input:focus {
+            width: 250px;
+            border-color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            background: var(--card-bg);
+            padding: 15px 0;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+        }
+
+        .filter-list {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-item {
+            padding: 6px 16px;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--text-sub);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-item:hover, .filter-item.active {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            background-color: #fff5e6;
+        }
+
+        /* Content Grid */
+        .manga-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .manga-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .manga-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            position: relative;
+            width: 100%;
+            padding-top: 140%; /* 5:7 Aspect Ratio */
+            background-color: #eee;
+        }
+
+        .card-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .manga-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .read-btn {
+            background: white;
+            color: var(--accent-color);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-sub);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Section Title */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .more-link {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        .more-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Latest Updates List */
+        .update-list {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .update-item {
+            display: flex;
+            padding: 15px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s;
+        }
+
+        .update-item:last-child {
+            border-bottom: none;
+        }
+
+        .update-item:hover {
+            background-color: #fafafa;
+        }
+
+        .update-img {
+            width: 80px;
+            height: 100px;
+            border-radius: 4px;
+            object-fit: cover;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .update-content {
+            flex: 1;
+        }
+
+        .update-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .update-title a:hover {
+            color: var(--accent-color);
+        }
+
+        .update-info {
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        .update-chapter {
+            background-color: #eef2f7;
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .update-time {
+            font-size: 13px;
+            color: #999;
+            white-space: nowrap;
+        }
+
+        /* Info Section */
+        .info-section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 50px;
+        }
+
+        .info-content h2 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .info-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 40px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .manga-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .update-item {
+                flex-direction: column;
+            }
+
+            .update-img {
+                width: 100%;
+                height: 150px;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">六漫画<span>免费阅读</span></a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">排行榜</a></li>
+                <li><a href="#">分类</a></li>
+                <li><a href="#">剧场版</a></li>
+                <li><a href="#">全本</a></li>
+            </ul>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="搜索漫画...">
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <h1>全职法师漫画免费阅读</h1>
+            <p>在线观看《全职法师》高清漫画全集，跟随莫凡的脚步探索神秘莫测的魔法世界。无广告、加载快，支持手机端流畅阅读。</p>
+            <a href="#latest" class="btn">开始阅读</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+            <div class="filter-list">
+                <span class="filter-item active">全部</span>
+                <span class="filter-item">热血</span>
+                <span class="filter-item">校园</span>
+                <span class="filter-item">魔法</span>
+                <span class="filter-item">冒险</span>
+                <span class="filter-item">战斗</span>
+                <span class="filter-item">异能</span>
+                <span class="filter-item">完结</span>
+            </div>
+        </div>
+
+        <!-- Hot Grid -->
+        <section id="hot">
+            <div class="section-header">
+                <h2>热门推荐</h2>
+                <a href="#" class="more-link">查看更多 &raquo;</a>
+            </div>
+            <div class="manga-grid">
+                <!-- Card 1 -->
+                <article class="manga-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/mo1/300/420" alt="全职法师封面">
+                        <div class="card-overlay">
+                            <a href="#" class="read-btn">立即阅读</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title"><a href="#">全职法师</a></h3>
+                        <div class="card-meta">
+                            <span>类型: 魔法/校园</span>
+                            <span>热度: 98.5w</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="manga-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/mo2/300/420" alt="全职法师">
+                        <div class="card-overlay">
+                            <a href="#" class="read-btn">立即阅读</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title"><a href="#">全职法师</a></h3>
+                        <div class="card-meta">
+                            <span>类型: 魔法/战斗</span>
+                            <span>热度: 95.2w</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="manga-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/mo3/300/420" alt="全职法师">
+                        <div class="card-overlay">
+                            <a href="#" class="read-btn">立即阅读</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title"><a href="#">全职法师</a></h3>
+                        <div class="card-meta">
+                            <span>类型: 异能/冒险</span>
+                            <span>热度: 92.1w</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="manga-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/mo4/300/420" alt="全职法师">
+                        <div class="card-overlay">
+                            <a href="#" class="read-btn">立即阅读</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title"><a href="#">全职法师</a></h3>
+                        <div class="card-meta">
+                            <span>类型: 热血/升级</span>
+                            <span>热度: 88.4w</span>
+                        </div>
+                    </div>
+                </article>
+                
+                 <!-- Card 5 -->
+                 <article class="manga-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/mo5/300/420" alt="全职法师">
+                        <div class="card-overlay">
+                            <a href="#" class="read-btn">立即阅读</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title"><a href="#">全职法师</a></h3>
+                        <div class="card-meta">
+                            <span>类型: 魔法/学院</span>
+                            <span>热度: 85.6w</span>
+                        </div>
+                    </div>
+                </article>
+
+                 <!-- Card 6 -->
+                 <article class="manga-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/mo6/300/420" alt="全职法师">
+                        <div class="card-overlay">
+                            <a href="#" class="read-btn">立即阅读</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title"><a href="#">全职法师</a></h3>
+                        <div class="card-meta">
+                            <span>类型: 剧情/动作</span>
+                            <span>热度: 82.3w</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section class="info-section" id="info">
+            <div class="info-content">
+                <h2>关于《全职法师》</h2>
+                <p><strong>《全职法师》</strong>是由中国网络作家“回南雀”创作，由知名画师“来自远方”绘制的热血魔法类漫画作品。故事讲述了拥有着神秘血脉的少年莫凡，在进入圣罗兰魔法学院后，凭借自己顽强的毅力和对魔法的独特领悟，一步步成长为世界级强者的传奇故事。</p>
+                <p>该作改编自同名小说，拥有庞大的世界观设定、丰富的人物性格以及精彩的战斗场面，深受广大漫迷喜爱。在六漫画平台，您可以找到最全的高清章节，享受流畅的阅读体验。</p>
+            </div>
+        </section>
+
+        <!-- Latest Updates -->
+        <section id="latest">
+            <div class="section-header">
+                <h2>最新章节</h2>
+                <a href="#" class="more-link">查看更多 &raquo;</a>
+            </div>
+            <div class="update-list">
+                <article class="update-item">
+                    <img src="https://picsum.photos/seed/ch1/160/200" alt="封面" class="update-img">
+                    <div class="update-content">
+                        <h3 class="update-title"><a href="#">全职法师 第1234话：元素共鸣</a> <span class="update-chapter">第1234话</span></h3>
+                        <div class="update-info">
+                            <span>分类：正文</span> | 
+                            <span>更新时间：2023-10-24</span>
+                        </div>
+                    </div>
+                    <div class="update-time">10分钟前</div>
+                </article>
+
+                <article class="update-item">
+                    <img src="https://picsum.photos/seed/ch2/160/200" alt="封面" class="update-img">
+                    <div class="update-content">
+                        <h3 class="update-title"><a href="#">全职法师 第1233话：决战前夕</a> <span class="update-chapter">第1233话</span></h3>
+                        <div class="update-info">
+                            <span>分类：正文</span> | 
+                            <span>更新时间：2023-10-23</span>
+                        </div>
+                    </div>
+                    <div class="update-time">1小时前</div>
+                </article>
+
+                <article class="update-item">
+                    <img src="https://picsum.photos/seed/ch3/160/200" alt="封面" class="update-img">
+                    <div class="update-content">
+                        <h3 class="update-title"><a href="#">全职法师 第1232话：魔纹觉醒</a> <span class="update-chapter">第1232话</span></h3>
+                        <div class="update-info">
+                            <span>分类：正文</span> | 
+                            <span>更新时间：2023-10-23</span>
+                        </div>
+                    </div>
+                    <div class="update-time">3小时前</div>
+                </article>
+
+                <article class="update-item">
+                    <img src="https://picsum.photos/seed/ch4/160/200" alt="封面" class="update-img">
+                    <div class="update-content">
+                        <h3 class="update-title"><a href="#">全职法师 第1231话：暗影来袭</a> <span class="update-chapter">第1231话</span></h3>
+                        <div class="update-info">
+                            <span>分类：正文</span> | 
+                            <span>更新时间：2023-10-22</span>
+                        </div>
+                    </div>
+                    <div class="update-time">昨天</div>
+                </article>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>六漫画</h3>
+                <p>致力于为漫迷提供最优质的免费漫画阅读体验，包含热门韩漫、日漫、国漫等高清资源。</p>
+            </div>
+            <div class="footer-col">
+                <h3>快速导航</h3>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">全本专区</a></li>
+                    <li><a href="#">剧场版</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>热门分类</h3>
+                <ul>
+                    <li><a href="#">热血战斗</a></li>
+                    <li><a href="#">恋爱校园</a></li>
+                    <li><a href="#">奇幻冒险</a></li>
+                    <li><a href="#">悬疑推理</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>联系我们</h3>
+                <ul>
+                    <li><a href="#">意见反馈</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">用户协议</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 六漫画免费阅读. All Rights Reserved. 本站内容仅供学习交流，请勿用于商业用途。</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+                                                                                    </html>
