@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="特种部队之利刃出鞘 - 专注特种作战题材的深度资讯与影视作品鉴赏平台，提供战术解析、装备测评、经典影片回顾及军事文化科普。">
+    <meta name="keywords" content="特种部队之利刃出鞘,特种作战,军事影视,战术装备,特种兵电影,军事科普">
+    <title>特种部队之利刃出鞘 - 特种作战题材深度鉴赏与资讯平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #d32f2f;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-light: #f4f4f4;
+            --bg-white: #ffffff;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-unit);
+            padding-bottom: var(--spacing-unit);
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/seed/military/1600/600') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #b71c1c;
+            transform: translateY(-2px);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Content Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Featured Section */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .card-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: #999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--bg-white);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .rank-number {
+            width: 24px;
+            height: 24px;
+            background-color: #eee;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .rank-list li:nth-child(1) .rank-number { background-color: #ffd700; color: #fff; }
+        .rank-list li:nth-child(2) .rank-number { background-color: #c0c0c0; color: #fff; }
+        .rank-list li:nth-child(3) .rank-number { background-color: #cd7f32; color: #fff; }
+
+        .rank-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .rank-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Tactical Section */
+        .tactical-section {
+            background-color: var(--bg-white);
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .tactical-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .tactic-item {
+            text-align: center;
+        }
+
+        .tactic-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .tactic-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .tactical-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <span>⚔</span> 特种部队之利刃出鞘
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">影视作品</a></li>
+                    <li><a href="#">战术装备</a></li>
+                    <li><a href="#">军事科普</a></li>
+                    <li><a href="#">历史回顾</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn" aria-label="搜索">🔍</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>直面生死，极限挑战</h1>
+            <p>深入探索特种部队题材的影视作品、战术装备解析与军事文化。这里是硬核军事迷的精神家园。</p>
+            <a href="#featured" class="btn">开始探索</a>
+        </div>
+    </section>
+
+    <div class="stats-bar">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>收录影片</p>
+            </div>
+            <div class="stat-item">
+                <h3>120+</h3>
+                <p>战术装备</p>
+            </div>
+            <div class="stat-item">
+                <h3>50K+</h3>
+                <p>军事爱好者</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>资讯更新</p>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="main-grid" id="featured">
+            <section class="content-area">
+                <h2 class="section-title">精选推荐</h2>
+                <div class="featured-grid">
+                    <article class="card">
+                        <div class="card-img">
+                            <span class="card-tag">影视</span>
+                            <img src="https://picsum.photos/seed/action1/400/300" alt="特种作战电影海报">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">深入敌后：现代特种作战实录</h3>
+                            <p class="card-excerpt">解析近年来好莱坞及欧洲影坛关于特种部队作战的经典电影，探讨其真实性与戏剧张力的平衡。</p>
+                            <div class="card-meta">
+                                <span>2023-10-24</span>
+                                <span>阅读 2.4k</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-img">
+                            <span class="card-tag">装备</span>
+                            <img src="https://picsum.photos/seed/gun/400/300" alt="战术装备图解">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">战术背心与单兵防护系统详解</h3>
+                            <p class="card-excerpt">从早期的软质防弹衣到现代硬质插板系统，全方位解析特种兵的“第二层皮肤”。</p>
+                            <div class="card-meta">
+                                <span>2023-10-22</span>
+                                <span>阅读 1.8k</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-img">
+                            <span class="card-tag">历史</span>
+                            <img src="https://picsum.photos/seed/history/400/300" alt="特种部队历史">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">影子部队：揭秘二战特种行动</h3>
+                            <p class="card-excerpt">回顾二战时期盟军与德军特种部队的传奇行动，那些改变战局的关键突袭。</p>
+                            <div class="card-meta">
+                                <span>2023-10-20</span>
+                                <span>阅读 3.1k</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-img">
+                            <span class="card-tag">装备</span>
+                            <img src="https://picsum.photos/seed/drone/400/300" alt="无人机">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">无人机在特种作战中的应用</h3>
+                            <p class="card-excerpt">从“捕食者”到“游荡弹药”，科技如何重塑现代特种部队的侦察与打击方式。</p>
+                            <div class="card-meta">
+                                <span>2023-10-18</span>
+                                <span>阅读 1.5k</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">热门榜单</h3>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-number">1</span>
+                            <a href="#" class="rank-link">海豹突击队：深海任务</a>
+                        </li>
+                        <li>
+                            <span class="rank-number">2</span>
+                            <a href="#" class="rank-link">黑鹰坠落：摩加迪沙之战</a>
+                        </li>
+                        <li>
+                            <span class="rank-number">3</span>
+                            <a href="#" class="rank-link">使命召唤：现代战争</a>
+                        </li>
+                        <li>
+                            <span class="rank-number">4</span>
+                            <a href="#" class="rank-link">阿尔法小队：俄罗斯特种兵</a>
+                        </li>
+                        <li>
+                            <span class="rank-number">5</span>
+                            <a href="#" class="rank-link">安德森堡：英国特种空勤团</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">装备图鉴</h3>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-number">1</span>
+                            <a href="#" class="rank-link">HK416突击步枪</a>
+                        </li>
+                        <li>
+                            <span class="rank-number">2</span>
+                            <a href="#" class="rank-link">P90冲锋枪</a>
+                        </li>
+                        <li>
+                            <span class="rank-number">3</span>
+                            <a href="#" class="rank-link">夜视仪技术</a>
+                        </li>
+                        <li>
+                            <span class="rank-number">4</span>
+                            <a href="#" class="rank-link">战术通信耳机</a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <section class="tactical-section">
+        <div class="container">
+            <h2 class="section-title">核心战术理念</h2>
+            <div class="tactical-grid">
+                <div class="tactic-item">
+                    <div class="tactic-icon">🎯</div>
+                    <h3 class="tactic-title">精准打击</h3>
+                    <p style="color:var(--text-secondary)">强调信息收集与情报分析，通过精确制导武器实现非接触式作战，最大限度减少附带损伤。</p>
+                </div>
+                <div class="tactic-item">
+                    <div class="tactic-icon">🤝</div>
+                    <h3 class="tactic-title">小队协同</h3>
+                    <p style="color:var(--text-secondary)">特种作战的核心在于队员间的默契配合与信任。无论是突击、狙击还是医疗支援，各司其职。</p>
+                </div>
+                <div class="tactic-item">
+                    <div class="tactic-icon">🥷</div>
+                    <h3 class="tactic-title">隐秘行动</h3>
+                    <p style="color:var(--text-secondary)">通过渗透、伪装和反侦察技术，在敌方防线内达成战略目标，达成“兵不血刃”的效果。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <span>⚔</span> 特种部队之利刃出鞘
+                    </div>
+                    <p style="font-size: 0.9rem; line-height: 1.8; color: #999;">
+                        致力于为军事爱好者提供最专业的特种作战题材内容。我们关注装备、历史与战术，还原真实的战场环境。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>内容导航</h4>
+                    <ul>
+                        <li><a href="#">最新资讯</a></li>
+                        <li><a href="#">影视推荐</a></li>
+                        <li><a href="#">装备测评</a></li>
+                        <li><a href="#">战术指南</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">网站简介</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">联系合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">Bilibili专栏</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 特种部队之利刃出鞘. All Rights Reserved. 仅供学习与交流使用。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
